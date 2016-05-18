@@ -15,7 +15,7 @@ y = pd.read_csv('E:/sample/5.1.logistic_y.txt',sep=',',header=None,names=('y'))
 
 # grediant decent to find best theta
 
-
+this is a test
 
 # grediant decent to find best theta
 
