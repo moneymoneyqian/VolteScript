@@ -1,0 +1,10 @@
+colnames=['stat_month','msisdn','hm_prov','vstd_prov_count','rm_days','voice_mo_count','voice_mt_count','video_mo_count','video_mt_count','voice_mo_dur','voice_mt_dur','video_mo_dur','video_mt_dur','workday_days','holiday_days','specialday_days','workday_count','holiday_count','specialday_count','workday_dur','holiday_dur','specialday_dur','between_volte','volte223g']
+
+
+newcolnames=['msisdn','stat_month','hm_prov','vstd_prov_cont','rm_days','workday_days','holiday_days','specialday_days','workday_cont','holiday_cont','specialday_cont','workday_dr','holiday_dr','specialday_dr','call_cont','call_dr','avg_day_cont_totle','avg_day_dr_totle','avg_day_cont_workday','avg_day_dr_workday','avg_day_cont_holiday','avg_day_dr_holiday']
+
+
+final_col=['stat_month','msisdn','hm_prov','vstd_prov_count','rm_days','workday_days','holiday_days','specialday_days','workday_count','holiday_count','specialday_count','workday_dur','holiday_dur','specialday_dur','flag','call_count','call_dur','avg_day_count_totle','avg_day_dur_totle','avg_day_count_workday','avg_day_dur_workday','avg_day_count_holiday','avg_day_dur_holiday']
+
+
+final_col=['msisdn', 'stat_month', 'hm_prov', 'flag', 'vstd_prov_cont', 'rm_days', 'workday_days', 'holiday_days', 'specialday_days', 'workday_cont', 'holiday_cont', 'specialday_cont', 'workday_dr', 'holiday_dr', 'specialday_dr', 'call_cont', 'call_dr', 'avg_day_cont_totle', 'avg_day_dr_totle', 'avg_day_cont_workday', 'avg_day_dr_workday', 'avg_day_cont_holiday', 'avg_day_dr_holiday']
