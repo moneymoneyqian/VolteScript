@@ -27,14 +27,14 @@ def logit(theta,X):
 	X=np.array(X)
 	gx = 0
 	for i in range(theta.size):
-		gx=theta[i]*X[i]
+		gx=theta[i]*X[i]+gx
 	logit=1/(1+exp(-gx))	
 	return logit
 
 def sumhx(X,y,j,theta):
 	X=np.array(X)
 	y=np.array(y)
-	m=X.shape[1]
+	m=X.shape[0]
 	gx=0.0
 	for i in range(m):
 		gx=gx+(logit(theta,X[i,:])-y[i])*X[i,j]
@@ -49,8 +49,9 @@ def plotlines(X,y,theta):
 	yy = -theta[1]/theta[2]*xx-theta[0]/theta[2]
 	plt.plot(xx,yy,'k-')
 
-for i in range(100):
-	theta=gradient_decent(X,y,theta)
+theta=np.array([0.0,0.0,0.0])
+for i in range(1000):
+	theta=gradient_decent(X,y,theta,step=0.01)
 
 X=np.array(X)
 plt.scatter(X[:,0], X[:,1], c=np.array(y), cmap=plt.cm.Paired)
