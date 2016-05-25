@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 X = pd.read_csv('E:/sample/5.1.logistic_x.txt',sep=',',header=None,names=('v1','v2'))
+Xtmp = pd.read_csv('E:/sample/5.1.logistic_x.txt',sep=',',header=None,names=('v1','v2'))
+Xtmp = np.array(Xtmp)
 y = pd.read_csv('E:/sample/5.1.logistic_y.txt',sep=',',header=None,names=('y'))
 
 
@@ -12,23 +14,23 @@ model = LogisticRegression(solver='newton-cg')
 model.fit(X,y)
 
 # grediant decent to find best theta
-def gradient_decent(X,y,theta,step=0.0001):
+def gradient_decent(X,y,theta,step=0.001):
 	X=pd.DataFrame(X)
 	ones=pd.Series(np.ones(X.shape[0]))
 	X=np.array(pd.concat([ones,X],axis=1))
-	y=np.array(y)
+	y=np.array(y);
 	m=X.shape[0]
-	error=y-logit(theta,X)
+	error=y-logit(np.dot(X,theta))
 	tmp=np.dot(X.transpose(),error)
-	theta=theta - step*1/m*tmp
+	theta=theta + step*1/m*tmp
+	# print "error"
+	# print error
+	# print "tmp"
+	# print tmp
 	return theta
                                              
-def logit(theta,X):
-	X=np.array(X)
-	gx = 0
-	gx=np.dot(X,theta)
-	logit=1/(1+exp(-gx))	
-	return logit
+def logit(inX):
+	return 1.0/(1+exp(-inX))
 
 def sumhx(X,y,j,theta):
 	X=np.array(X)
@@ -40,17 +42,18 @@ def sumhx(X,y,j,theta):
 	return gx
 # grediant decent to find best xx-theta
 
-def plotlines(X,y,theta):
+def plotlines(X,y,theta,linecolor="black"):
 	X=np.array(X)
 	y=np.array(y)
 	plt.scatter(X[:,0], X[:,1], c=np.array(y), cmap=plt.cm.Paired)
-	xx = np.linspace(-10, 10,100)
+	xx = np.linspace(-0.0, 10,100)
 	yy = -theta[1]/theta[2]*xx-theta[0]/theta[2]
-	plt.plot(xx,yy,'k-')
+	plt.plot(xx,yy,'k-',color=linecolor)
 
-theta=np.array([0.0,0.0,0.0])
+theta=np.ones((3,1))
 for i in range(500):
-	theta=gradient_decent(X,y,theta,step=0.0001)
+	theta=gradient_decent(X,y,theta,step=0.01)
+	plotlines(Xtmp,y,theta)
 
 theta=np.ones((3,1))
 X=np.array(X)

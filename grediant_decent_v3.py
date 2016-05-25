@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 X = pd.read_csv('E:/sample/5.1.logistic_x.txt',sep=',',header=None,names=('v1','v2'))
 Xtmp = pd.read_csv('E:/sample/5.1.logistic_x.txt',sep=',',header=None,names=('v1','v2'))
-
+Xtmp = np.array(Xtmp)
 ones=pd.Series(np.ones(X.shape[0]))
 X=np.array(pd.concat([ones,X],axis=1))
 y = pd.read_csv('E:/sample/5.1.logistic_y.txt',sep=',',header=None,names=('y'))
