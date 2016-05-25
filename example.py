@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import scipy as sp
 final_col=['msisdn', 'stat_month', 'hm_prov', 'flag', 'vstd_prov_cont', 'rm_days', 'workday_days', 'holiday_days', 'specialday_days', 'workday_cont', 'holiday_cont', 'specialday_cont', 'workday_dr', 'holiday_dr', 'specialday_dr', 'call_cont', 'call_dr', 'avg_day_cont_totle', 'avg_day_dr_totle', 'avg_day_cont_workday', 'avg_day_dr_workday', 'avg_day_cont_holiday', 'avg_day_dr_holiday']
+
+
 data_201601= pd.read_csv('E:/Clean Data/data_final_201601_origin.csv',sep=',',header=0,names=final_col,index_col=['stat_month','msisdn','hm_prov'])
 
 #understanding datas

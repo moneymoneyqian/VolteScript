@@ -51,9 +51,9 @@ def plotlines(X,y,theta,linecolor="black"):
 	plt.plot(xx,yy,'k-',color=linecolor)
 
 theta=np.ones((3,1))
-for i in range(500):
-	theta=gradient_decent(X,y,theta,step=0.01)
-	plotlines(Xtmp,y,theta)
+for i in range(200):
+	theta=gradient_decent(X,y,theta,step=1)
+	plotlines(Xtmp,y,theta,linecolor="red")
 
 theta=np.ones((3,1))
 X=np.array(X)
